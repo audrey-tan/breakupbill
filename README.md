@@ -1,96 +1,72 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+Welcome to BreakUp!
 
-<p align="center">
- The fastest way to build apps with Next.js and Supabase
-</p>
+VIDEO LINK: [https://youtu.be/nGrhoOkp-lY]
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
-</p>
-<br/>
+Table of contents:
+• Introduction
+• Important notes
+• Prerequisites
+• How to run the project
+• Troubleshooting
+• Features
 
-## Features
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+Introduction
+Tired of pulling out a calculator to split your bill? BreakUp is a web app designed to help you split their bills after a enjoying a nice meal with your friends! Simply take a picture of your receipt to automatically scan it, assign items to your friends, and let BreakUp do all the tedious calculations for you!
 
-## Demo
+Need a quick way to see BreakUp in action? Check out the deployed version by clicking [https://breakupbills.vercel.app/].
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
 
-## Deploy to Vercel
+Important notes
 
-Vercel deployment will guide you through creating a Supabase account and project.
+If running on phone, please use the deployed version [https://breakupbills.vercel.app/] as camera access may not be avaiable with unsecured local hosting.
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+BreakUp uses Veryfi API to parse receipt images on its free tier, which has a 100 limit per month, and EmailJS to send emails, with a 200 limit per month. If these limits are reached, the web app would still be functional albeit with the image receipt parsing and email functions unavailable. For the submission of this project, new accounts on Veryfi and EmailJS were created. Therefore, there should still be plenty of usages left. However, if you'd like (though not necessary), you can easily update the .env with your own credentials to connect them to other Verify and EmailJS accounts.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This+starter+configures+Supabase+Auth+to+use+cookies%2C+making+the+user%27s+session+available+throughout+the+entire+Next.js+app+-+Client+Components%2C+Server+Components%2C+Route+Handlers%2C+Server+Actions+and+Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png)
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+Prerequisites:
+1. Node.js and npm
+    Follow the steps on https://nodejs.org/en/download/package-manager (v.22.12.0 LTS) to install Node.js (npm should come with it).
+    Check that the installations are successful by running "node -v" and "npm -v".
+2. Dependencies
+    Ensure that you are in the "splitbill" directory.
+    Run "npm install" to install dependencies.
+    
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+How to run the project:
+1. Ensure that you are in the "splitbill" directory.
+2. Run "npm run dev" to run the project.
 
-## Clone and run locally
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+Troubleshooting:
+• "zsh: command not found: npm" error 
+    Run "source ~/.nvm/nvm.sh" to load nvm into your shell session.
+• "Cannot find module [module name]" error
+    Run "npm install [module name]" to install the module.
+• Still having trouble running the project? No worries! You can check out the deployed version of BreakUp [https://breakupbills.vercel.app/]. 
 
-2. Create a Next.js app using the Supabase Starter template npx command
 
-   ```bash
-   npx create-next-app -e with-supabase
-   ```
-
-3. Use `cd` to change into the app's directory
-
-   ```bash
-   cd name-of-new-app
-   ```
-
-4. Rename `.env.example` to `.env.local` and update the following:
-
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
-
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
-
-5. You can now run the Next.js local development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
-
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
-
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
-
-## Feedback and issues
-
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
-
-## More Supabase examples
-
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+Features:
+1. On the Home page, press the Start button.
+2. On the Receipt page, allow camera permissions on your browser if needed, then take a picture of your receipt.
+3. On the Edit Bill page, you can:
+        - add a new item at the bottom of the list of items by pressing the + button;
+        - delete an item by pressing the x button on the right side of the corresponding item;
+        - view more items (if available) by scrolling the list of items;
+        - edit the name and/or price of an item; and
+        - edit the tax and additional fees and tip value.
+4. On the Add People page, you can: 
+        - add people by typing their names (required) and email addresses (optional), 
+            note: names must be unique;
+        - delete people by pressing the x button on the right side of a person; and
+        - view more people (if available) by scrolling the list of people.
+5. On the Assign People page, you can:
+        - select a person by tapping on their name;
+        - increment the number of items the selected person ordered using the + button on the corresponding item;
+        - decrement the number of items the selected person ordered using the - button on the corresponding item;
+        - view more people (if available) by scrolling horizontally the list of people; and
+        - view more items (if available) by scrolling the list of items; and
+        - press the Calculate button to go to the results page and calculate each person's share.
+6. On the Results page, you can:
+        - view each person's share ans scroll to view more (if available); and
+        - press the Send Emails button to send emails to each person with an email added of their total share and the split bill breakdown. 
