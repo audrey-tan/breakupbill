@@ -24,8 +24,8 @@ Try BreakUp now at https://breakupbills.vercel.app/.
 
    Clone the repository and navigate to the project directory:
    ```bash
-    git clone https://github.com/your-username/splitbill.git
-    cd splitbill
+    git clone https://github.com/audrey-tan/breakupbill.git
+    cd breakupbill
    ```
 
 ## Getting Started
@@ -34,7 +34,7 @@ To start the development server:
 
 1. Navigate to the project root directory:
    ```bash
-    cd splitbill
+    cd breakupbill
    ```
 
 2. Run the application in development mode:
